@@ -22,10 +22,6 @@ class ProductAbstractRestrictionReader implements ProductAbstractRestrictionRead
      */
     protected $productListProductAbstractStorageReader;
 
-    /**
-     * @param \Spryker\Client\ProductListStorage\Dependency\Client\ProductListStorageToCustomerClientInterface $customerClient
-     * @param \Spryker\Client\ProductListStorage\ProductListProductAbstractStorage\ProductListProductAbstractStorageReaderInterface $productListProductAbstractStorageReader
-     */
     public function __construct(
         ProductListStorageToCustomerClientInterface $customerClient,
         ProductListProductAbstractStorageReaderInterface $productListProductAbstractStorageReader
@@ -34,11 +30,6 @@ class ProductAbstractRestrictionReader implements ProductAbstractRestrictionRead
         $this->productListProductAbstractStorageReader = $productListProductAbstractStorageReader;
     }
 
-    /**
-     * @param int $idProductAbstract
-     *
-     * @return bool
-     */
     public function isProductAbstractRestricted(int $idProductAbstract): bool
     {
         $customer = $this->customerClient->getCustomer();

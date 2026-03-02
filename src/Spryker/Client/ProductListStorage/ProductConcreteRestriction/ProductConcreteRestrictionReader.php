@@ -23,10 +23,6 @@ class ProductConcreteRestrictionReader implements ProductConcreteRestrictionRead
      */
     protected $productListProductConcreteStorageReader;
 
-    /**
-     * @param \Spryker\Client\ProductListStorage\Dependency\Client\ProductListStorageToCustomerClientInterface $customerClient
-     * @param \Spryker\Client\ProductListStorage\ProductListProductConcreteStorage\ProductListProductConcreteStorageReaderInterface $productListProductConcreteStorageReader
-     */
     public function __construct(
         ProductListStorageToCustomerClientInterface $customerClient,
         ProductListProductConcreteStorageReaderInterface $productListProductConcreteStorageReader
@@ -35,11 +31,6 @@ class ProductConcreteRestrictionReader implements ProductConcreteRestrictionRead
         $this->productListProductConcreteStorageReader = $productListProductConcreteStorageReader;
     }
 
-    /**
-     * @param int $idProduct
-     *
-     * @return bool
-     */
     public function isProductConcreteRestricted(int $idProduct): bool
     {
         $customer = $this->customerClient->getCustomer();

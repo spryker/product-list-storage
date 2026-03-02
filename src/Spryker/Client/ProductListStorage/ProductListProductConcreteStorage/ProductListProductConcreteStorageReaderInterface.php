@@ -11,11 +11,6 @@ use Generated\Shared\Transfer\ProductConcreteProductListStorageTransfer;
 
 interface ProductListProductConcreteStorageReaderInterface
 {
-    /**
-     * @param int $idProduct
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteProductListStorageTransfer|null
-     */
     public function findProductConcreteProductListStorage(int $idProduct): ?ProductConcreteProductListStorageTransfer;
 
     /**

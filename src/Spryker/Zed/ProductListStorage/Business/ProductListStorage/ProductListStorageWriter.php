@@ -34,12 +34,6 @@ class ProductListStorageWriter implements ProductListStorageWriterInterface
      */
     protected $productListStorageRepository;
 
-    /**
-     * @param \Spryker\Zed\ProductListStorage\Business\ProductListProductAbstractStorage\ProductListProductAbstractStorageWriterInterface $productListProductAbstractStorageWriter
-     * @param \Spryker\Zed\ProductListStorage\Business\ProductListProductConcreteStorage\ProductListProductConcreteStorageWriterInterface $productListProductConcreteStorageWriter
-     * @param \Spryker\Zed\ProductListStorage\Dependency\Facade\ProductListStorageToProductListFacadeInterface $productListFacade
-     * @param \Spryker\Zed\ProductListStorage\Persistence\ProductListStorageRepositoryInterface $productListStorageRepository
-     */
     public function __construct(
         ProductListProductAbstractStorageWriterInterface $productListProductAbstractStorageWriter,
         ProductListProductConcreteStorageWriterInterface $productListProductConcreteStorageWriter,

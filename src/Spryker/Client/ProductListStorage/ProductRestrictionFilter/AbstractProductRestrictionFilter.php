@@ -36,9 +36,6 @@ abstract class AbstractProductRestrictionFilter implements ProductRestrictionFil
      */
     protected static $customerTransfer;
 
-    /**
-     * @param \Spryker\Client\ProductListStorage\Dependency\Client\ProductListStorageToCustomerClientInterface $customerClient
-     */
     public function __construct(ProductListStorageToCustomerClientInterface $customerClient)
     {
         $this->customerClient = $customerClient;
@@ -91,9 +88,6 @@ abstract class AbstractProductRestrictionFilter implements ProductRestrictionFil
         return array_values($productIds);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\CustomerProductListCollectionTransfer|null
-     */
     protected function findCustomerProductListCollectionTransfer(): ?CustomerProductListCollectionTransfer
     {
         $customerTransfer = $this->getCustomerTransfer();
@@ -104,9 +98,6 @@ abstract class AbstractProductRestrictionFilter implements ProductRestrictionFil
         return $customerTransfer->getCustomerProductListCollection();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\CustomerTransfer|null
-     */
     protected function getCustomerTransfer(): ?CustomerTransfer
     {
         if (!static::$customerRequested) {

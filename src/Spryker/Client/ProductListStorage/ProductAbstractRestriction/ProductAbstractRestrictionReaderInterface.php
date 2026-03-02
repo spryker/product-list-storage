@@ -9,10 +9,5 @@ namespace Spryker\Client\ProductListStorage\ProductAbstractRestriction;
 
 interface ProductAbstractRestrictionReaderInterface
 {
-    /**
-     * @param int $idProductAbstract
-     *
-     * @return bool
-     */
     public function isProductAbstractRestricted(int $idProductAbstract): bool;
 }

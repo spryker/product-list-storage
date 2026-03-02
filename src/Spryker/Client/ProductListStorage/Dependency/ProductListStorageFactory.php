@@ -14,17 +14,11 @@ use Spryker\Client\ProductListStorage\ProductListStorageDependencyProvider;
 
 class ProductListStorageFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Client\ProductListStorage\Dependency\Client\ProductListStorageToStorageClientInterface
-     */
     public function getStorageClient(): ProductListStorageToStorageClientInterface
     {
         return $this->getProvidedDependency(ProductListStorageDependencyProvider::CLIENT_STORAGE);
     }
 
-    /**
-     * @return \Spryker\Client\ProductListStorage\Dependency\Service\ProductListStorageToSynchronizationServiceInterface
-     */
     public function getSynchronizationService(): ProductListStorageToSynchronizationServiceInterface
     {
         return $this->getProvidedDependency(ProductListStorageDependencyProvider::SERVICE_SYNCHRONIZATION);

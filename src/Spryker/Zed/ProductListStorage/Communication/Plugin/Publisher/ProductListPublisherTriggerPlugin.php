@@ -86,12 +86,6 @@ class ProductListPublisherTriggerPlugin extends AbstractPlugin implements Publis
         return static::COL_ID_PRODUCT_LIST;
     }
 
-    /**
-     * @param int $offset
-     * @param int $limit
-     *
-     * @return \Generated\Shared\Transfer\ProductListCriteriaTransfer
-     */
     protected function createProductListCriteria(int $offset, int $limit): ProductListCriteriaTransfer
     {
         return (new ProductListCriteriaTransfer())

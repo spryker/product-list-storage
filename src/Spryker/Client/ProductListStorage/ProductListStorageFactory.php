@@ -27,9 +27,6 @@ use Spryker\Client\ProductListStorage\ProductViewVariantRestrictionExpander\Prod
 
 class ProductListStorageFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Client\ProductListStorage\ProductListProductAbstractStorage\ProductListProductAbstractStorageReaderInterface
-     */
     public function createProductListProductAbstractStorageReader(): ProductListProductAbstractStorageReaderInterface
     {
         return new ProductListProductAbstractStorageReader(
@@ -38,9 +35,6 @@ class ProductListStorageFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ProductListStorage\ProductListProductConcreteStorage\ProductListProductConcreteStorageReaderInterface
-     */
     public function createProductListProductConcreteStorageReader(): ProductListProductConcreteStorageReaderInterface
     {
         return new ProductListProductConcreteStorageReader(
@@ -49,9 +43,6 @@ class ProductListStorageFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ProductListStorage\ProductAbstractRestriction\ProductAbstractRestrictionReaderInterface
-     */
     public function createProductAbstractRestrictionReader(): ProductAbstractRestrictionReaderInterface
     {
         return new ProductAbstractRestrictionReader(
@@ -60,9 +51,6 @@ class ProductListStorageFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ProductListStorage\ProductConcreteRestriction\ProductConcreteRestrictionReaderInterface
-     */
     public function createProductConcreteRestrictionReader(): ProductConcreteRestrictionReaderInterface
     {
         return new ProductConcreteRestrictionReader(
@@ -71,49 +59,31 @@ class ProductListStorageFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ProductListStorage\ProductRestrictionFilter\ProductRestrictionFilterInterface
-     */
     public function createProductAbstractProductRestrictionFilter(): ProductRestrictionFilterInterface
     {
         return new ProductAbstractProductRestrictionFilter($this->getCustomerClient(), $this->createProductListProductAbstractStorageReader());
     }
 
-    /**
-     * @return \Spryker\Client\ProductListStorage\ProductRestrictionFilter\ProductRestrictionFilterInterface
-     */
     public function createProductConcreteProductRestrictionFilter(): ProductRestrictionFilterInterface
     {
         return new ProductConcreteProductRestrictionFilter($this->getCustomerClient(), $this->createProductListProductConcreteStorageReader());
     }
 
-    /**
-     * @return \Spryker\Client\ProductListStorage\Dependency\Client\ProductListStorageToStorageClientInterface
-     */
     public function getStorageClient(): ProductListStorageToStorageClientInterface
     {
         return $this->getProvidedDependency(ProductListStorageDependencyProvider::CLIENT_STORAGE);
     }
 
-    /**
-     * @return \Spryker\Client\ProductListStorage\Dependency\Client\ProductListStorageToCustomerClientInterface
-     */
     public function getCustomerClient(): ProductListStorageToCustomerClientInterface
     {
         return $this->getProvidedDependency(ProductListStorageDependencyProvider::CLIENT_CUSTOMER);
     }
 
-    /**
-     * @return \Spryker\Client\ProductListStorage\Dependency\Service\ProductListStorageToSynchronizationServiceInterface
-     */
     public function getSynchronizationService(): ProductListStorageToSynchronizationServiceInterface
     {
         return $this->getProvidedDependency(ProductListStorageDependencyProvider::SERVICE_SYNCHRONIZATION);
     }
 
-    /**
-     * @return \Spryker\Client\ProductListStorage\ProductViewVariantRestrictionExpander\ProductViewVariantRestrictionExpanderInterface
-     */
     public function createProductViewVariantRestrictionExpander(): ProductViewVariantRestrictionExpanderInterface
     {
         return new ProductViewVariantRestrictionExpander($this->createProductConcreteRestrictionReader());

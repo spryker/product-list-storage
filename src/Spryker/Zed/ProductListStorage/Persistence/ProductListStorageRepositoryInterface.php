@@ -56,11 +56,6 @@ interface ProductListStorageRepositoryInterface
      */
     public function findProductConcreteIdsByProductListIds(array $productListIds): array;
 
-    /**
-     * @param array $categoryIds
-     *
-     * @return array
-     */
     public function getProductAbstractIdsByCategoryIds(array $categoryIds): array;
 
     /**
@@ -79,13 +74,7 @@ interface ProductListStorageRepositoryInterface
      */
     public function findFilteredProductAbstractProductListStorageEntities(FilterTransfer $filterTransfer, array $productAbstractIds = []): array;
 
-    /**
-     * @return int
-     */
     public function getProductListWhitelistEnumValue(): int;
 
-    /**
-     * @return int
-     */
     public function getProductListBlacklistEnumValue(): int;
 }

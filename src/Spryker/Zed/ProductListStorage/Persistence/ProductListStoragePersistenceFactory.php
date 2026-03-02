@@ -21,41 +21,26 @@ use Spryker\Zed\ProductListStorage\ProductListStorageDependencyProvider;
  */
 class ProductListStoragePersistenceFactory extends AbstractPersistenceFactory
 {
-    /**
-     * @return \Orm\Zed\ProductListStorage\Persistence\SpyProductAbstractProductListStorageQuery
-     */
     public function createProductAbstractProductListStorageQuery(): SpyProductAbstractProductListStorageQuery
     {
         return SpyProductAbstractProductListStorageQuery::create();
     }
 
-    /**
-     * @return \Orm\Zed\ProductListStorage\Persistence\SpyProductConcreteProductListStorageQuery
-     */
     public function createProductConcreteProductListStorageQuery(): SpyProductConcreteProductListStorageQuery
     {
         return SpyProductConcreteProductListStorageQuery::create();
     }
 
-    /**
-     * @return \Orm\Zed\Product\Persistence\SpyProductQuery
-     */
     public function getProductPropelQuery(): SpyProductQuery
     {
         return $this->getProvidedDependency(ProductListStorageDependencyProvider::PROPEL_QUERY_PRODUCT);
     }
 
-    /**
-     * @return \Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery
-     */
     public function getProductCategoryPropelQuery(): SpyProductCategoryQuery
     {
         return $this->getProvidedDependency(ProductListStorageDependencyProvider::PROPEL_QUERY_PRODUCT_CATEGORY);
     }
 
-    /**
-     * @return \Orm\Zed\ProductList\Persistence\SpyProductListProductConcreteQuery
-     */
     public function getProductListProductConcretePropelQuery(): SpyProductListProductConcreteQuery
     {
         return $this->getProvidedDependency(ProductListStorageDependencyProvider::PROPEL_QUERY_PRODUCT_LIST_PRODUCT_CONCRETE);

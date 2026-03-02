@@ -37,9 +37,6 @@ class ProductConcreteRestrictionReaderTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return array
-     */
     public function getProductConcreteRestrictionReaderData(): array
     {
         return [

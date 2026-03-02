@@ -11,11 +11,6 @@ use Generated\Shared\Transfer\ProductAbstractProductListStorageTransfer;
 
 interface ProductListProductAbstractStorageReaderInterface
 {
-    /**
-     * @param int $idProductAbstract
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractProductListStorageTransfer|null
-     */
     public function findProductAbstractProductListStorage(int $idProductAbstract): ?ProductAbstractProductListStorageTransfer;
 
     /**

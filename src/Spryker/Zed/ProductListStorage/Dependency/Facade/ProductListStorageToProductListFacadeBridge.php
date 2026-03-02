@@ -105,11 +105,6 @@ class ProductListStorageToProductListFacadeBridge implements ProductListStorageT
         return $this->productListFacade->getProductListsIdsByProductIds($productConcreteIds);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductListCriteriaTransfer $productListCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductListCollectionTransfer
-     */
     public function getProductListCollection(ProductListCriteriaTransfer $productListCriteriaTransfer): ProductListCollectionTransfer
     {
         return $this->productListFacade->getProductListCollection($productListCriteriaTransfer);

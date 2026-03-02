@@ -33,11 +33,6 @@ class ProductListProductAbstractStorageWriter implements ProductListProductAbstr
      */
     protected $productListStorageConfig;
 
-    /**
-     * @param \Spryker\Zed\ProductListStorage\Dependency\Facade\ProductListStorageToProductListFacadeInterface $productListFacade
-     * @param \Spryker\Zed\ProductListStorage\Persistence\ProductListStorageRepositoryInterface $productListStorageRepository
-     * @param \Spryker\Zed\ProductListStorage\ProductListStorageConfig $productListStorageConfig
-     */
     public function __construct(
         ProductListStorageToProductListFacadeInterface $productListFacade,
         ProductListStorageRepositoryInterface $productListStorageRepository,
@@ -129,12 +124,6 @@ class ProductListProductAbstractStorageWriter implements ProductListProductAbstr
         return $savedProductAbstractProductListStorageEntities;
     }
 
-    /**
-     * @param int $idProductAbstract
-     * @param array $productLists
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractProductListStorageTransfer
-     */
     protected function getProductAbstractProductListsStorageTransfer(
         int $idProductAbstract,
         array $productLists

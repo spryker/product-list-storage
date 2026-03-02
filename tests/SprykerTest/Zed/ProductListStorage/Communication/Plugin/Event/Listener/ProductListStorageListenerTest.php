@@ -39,9 +39,6 @@ class ProductListStorageListenerTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testProductAbstractStorageListenerStoreData(): void
     {
         SpyProductAbstractProductListStorageQuery::create()->filterByFkProductAbstract(42)->delete();
@@ -60,9 +57,6 @@ class ProductListStorageListenerTest extends Unit
         $this->assertGreaterThanOrEqual($beforeCount, $afterCount);
     }
 
-    /**
-     * @return void
-     */
     public function testProductConcreteStorageListenerStoreData(): void
     {
         SpyProductConcreteProductListStorageQuery::create()->filterByFkProduct(42)->delete();
@@ -81,9 +75,6 @@ class ProductListStorageListenerTest extends Unit
         $this->assertGreaterThanOrEqual($beforeCount, $afterCount);
     }
 
-    /**
-     * @return \Spryker\Zed\Kernel\Business\AbstractFacade
-     */
     protected function getFacade(): AbstractFacade
     {
         $facade = $this->tester->getFacade();
@@ -96,9 +87,6 @@ class ProductListStorageListenerTest extends Unit
         return $facade;
     }
 
-    /**
-     * @return \Spryker\Zed\ProductListStorage\Business\ProductListStorageBusinessFactory
-     */
     public function getFactoryMock(): ProductListStorageBusinessFactory
     {
         $factory = new ProductListStorageBusinessFactory();

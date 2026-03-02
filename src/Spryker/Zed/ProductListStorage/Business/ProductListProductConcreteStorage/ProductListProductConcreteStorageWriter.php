@@ -33,11 +33,6 @@ class ProductListProductConcreteStorageWriter implements ProductListProductConcr
      */
     protected $productListStorageConfig;
 
-    /**
-     * @param \Spryker\Zed\ProductListStorage\Dependency\Facade\ProductListStorageToProductListFacadeInterface $productListFacade
-     * @param \Spryker\Zed\ProductListStorage\Persistence\ProductListStorageRepositoryInterface $productListStorageRepository
-     * @param \Spryker\Zed\ProductListStorage\ProductListStorageConfig $productListStorageConfig
-     */
     public function __construct(
         ProductListStorageToProductListFacadeInterface $productListFacade,
         ProductListStorageRepositoryInterface $productListStorageRepository,
@@ -129,12 +124,6 @@ class ProductListProductConcreteStorageWriter implements ProductListProductConcr
         return $savedProductConcreteProductListStorageEntities;
     }
 
-    /**
-     * @param int $idProductConcrete
-     * @param array $productLists
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteProductListStorageTransfer
-     */
     protected function getProductConcreteProductListsStorageTransfer(int $idProductConcrete, array $productLists): ProductConcreteProductListStorageTransfer
     {
         $productConcreteProductListsStorageTransfer = new ProductConcreteProductListStorageTransfer();

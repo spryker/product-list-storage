@@ -215,27 +215,16 @@ class ProductListStorageRepository extends AbstractRepository implements Product
         return $this->buildQueryFromCriteria($query, $filterTransfer)->find();
     }
 
-    /**
-     * @return int
-     */
     public function getProductListWhitelistEnumValue(): int
     {
         return $this->getProductListTypeEnumValueByTypeName(SpyProductListTableMap::COL_TYPE_WHITELIST);
     }
 
-    /**
-     * @return int
-     */
     public function getProductListBlacklistEnumValue(): int
     {
         return $this->getProductListTypeEnumValueByTypeName(SpyProductListTableMap::COL_TYPE_BLACKLIST);
     }
 
-    /**
-     * @param string $type
-     *
-     * @return int
-     */
     protected function getProductListTypeEnumValueByTypeName(string $type): int
     {
         $enumForType = array_flip(SpyProductListTableMap::getValueSet(SpyProductListTableMap::COL_TYPE));

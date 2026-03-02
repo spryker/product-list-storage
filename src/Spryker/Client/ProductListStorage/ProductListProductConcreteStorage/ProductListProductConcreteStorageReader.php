@@ -25,10 +25,6 @@ class ProductListProductConcreteStorageReader implements ProductListProductConcr
      */
     protected $synchronizationService;
 
-    /**
-     * @param \Spryker\Client\ProductListStorage\Dependency\Client\ProductListStorageToStorageClientInterface $storageClient
-     * @param \Spryker\Client\ProductListStorage\Dependency\Service\ProductListStorageToSynchronizationServiceInterface $synchronizationService
-     */
     public function __construct(
         ProductListStorageToStorageClientInterface $storageClient,
         ProductListStorageToSynchronizationServiceInterface $synchronizationService
@@ -37,11 +33,6 @@ class ProductListProductConcreteStorageReader implements ProductListProductConcr
         $this->synchronizationService = $synchronizationService;
     }
 
-    /**
-     * @param int $idProduct
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteProductListStorageTransfer|null
-     */
     public function findProductConcreteProductListStorage(int $idProduct): ?ProductConcreteProductListStorageTransfer
     {
         $key = $this->generateKey($idProduct);
@@ -54,11 +45,6 @@ class ProductListProductConcreteStorageReader implements ProductListProductConcr
         return $this->mapProductConcreteProductListStorage($productConcreteProductListStorageData);
     }
 
-    /**
-     * @param int $idProduct
-     *
-     * @return string
-     */
     protected function generateKey(int $idProduct): string
     {
         $synchronizationDataTransfer = (new SynchronizationDataTransfer())
@@ -69,11 +55,6 @@ class ProductListProductConcreteStorageReader implements ProductListProductConcr
             ->generateKey($synchronizationDataTransfer);
     }
 
-    /**
-     * @param array $productConcreteProductListStorageData
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteProductListStorageTransfer
-     */
     protected function mapProductConcreteProductListStorage(array $productConcreteProductListStorageData): ProductConcreteProductListStorageTransfer
     {
         return (new ProductConcreteProductListStorageTransfer())->fromArray($productConcreteProductListStorageData, true);

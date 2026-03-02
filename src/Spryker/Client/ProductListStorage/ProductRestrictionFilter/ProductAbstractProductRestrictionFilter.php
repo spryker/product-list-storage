@@ -24,10 +24,6 @@ class ProductAbstractProductRestrictionFilter extends AbstractProductRestriction
      */
     protected $productListProductAbstractStorageReader;
 
-    /**
-     * @param \Spryker\Client\ProductListStorage\Dependency\Client\ProductListStorageToCustomerClientInterface $customerClient
-     * @param \Spryker\Client\ProductListStorage\ProductListProductAbstractStorage\ProductListProductAbstractStorageReaderInterface $productListProductAbstractStorageReader
-     */
     public function __construct(
         ProductListStorageToCustomerClientInterface $customerClient,
         ProductListProductAbstractStorageReaderInterface $productListProductAbstractStorageReader

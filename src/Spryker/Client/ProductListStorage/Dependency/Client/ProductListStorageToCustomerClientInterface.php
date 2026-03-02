@@ -11,8 +11,5 @@ use Generated\Shared\Transfer\CustomerTransfer;
 
 interface ProductListStorageToCustomerClientInterface
 {
-    /**
-     * @return \Generated\Shared\Transfer\CustomerTransfer|null
-     */
     public function getCustomer(): ?CustomerTransfer;
 }

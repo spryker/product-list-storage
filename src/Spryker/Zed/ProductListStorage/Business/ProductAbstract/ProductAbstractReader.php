@@ -16,9 +16,6 @@ class ProductAbstractReader implements ProductAbstractReaderInterface
      */
     protected $productListStorageRepository;
 
-    /**
-     * @param \Spryker\Zed\ProductListStorage\Persistence\ProductListStorageRepositoryInterface $productListStorageRepository
-     */
     public function __construct(
         ProductListStorageRepositoryInterface $productListStorageRepository
     ) {

@@ -25,10 +25,6 @@ class ProductListProductAbstractStorageReader implements ProductListProductAbstr
      */
     protected $synchronizationService;
 
-    /**
-     * @param \Spryker\Client\ProductListStorage\Dependency\Client\ProductListStorageToStorageClientInterface $storageClient
-     * @param \Spryker\Client\ProductListStorage\Dependency\Service\ProductListStorageToSynchronizationServiceInterface $synchronizationService
-     */
     public function __construct(
         ProductListStorageToStorageClientInterface $storageClient,
         ProductListStorageToSynchronizationServiceInterface $synchronizationService
@@ -37,11 +33,6 @@ class ProductListProductAbstractStorageReader implements ProductListProductAbstr
         $this->synchronizationService = $synchronizationService;
     }
 
-    /**
-     * @param int $idProductAbstract
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractProductListStorageTransfer|null
-     */
     public function findProductAbstractProductListStorage(int $idProductAbstract): ?ProductAbstractProductListStorageTransfer
     {
         $key = $this->generateKey($idProductAbstract);
@@ -54,11 +45,6 @@ class ProductListProductAbstractStorageReader implements ProductListProductAbstr
         return $this->mapProductAbstractProductListStorage($productAbstractProductListStorageData);
     }
 
-    /**
-     * @param int $idProductAbstract
-     *
-     * @return string
-     */
     protected function generateKey(int $idProductAbstract): string
     {
         $synchronizationDataTransfer = (new SynchronizationDataTransfer())
@@ -69,11 +55,6 @@ class ProductListProductAbstractStorageReader implements ProductListProductAbstr
             ->generateKey($synchronizationDataTransfer);
     }
 
-    /**
-     * @param array $productAbstractProductListStorageData
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractProductListStorageTransfer
-     */
     protected function mapProductAbstractProductListStorage(array $productAbstractProductListStorageData): ProductAbstractProductListStorageTransfer
     {
         return (new ProductAbstractProductListStorageTransfer())->fromArray($productAbstractProductListStorageData, true);

@@ -19,17 +19,11 @@ use Spryker\Zed\ProductListStorage\ProductListStorageDependencyProvider;
  */
 class ProductListStorageCommunicationFactory extends AbstractCommunicationFactory
 {
-    /**
-     * @return \Spryker\Zed\ProductListStorage\Dependency\Facade\ProductListStorageToEventBehaviorFacadeInterface
-     */
     public function getEventBehaviorFacade(): ProductListStorageToEventBehaviorFacadeInterface
     {
         return $this->getProvidedDependency(ProductListStorageDependencyProvider::FACADE_EVENT_BEHAVIOR);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductListStorage\Dependency\Facade\ProductListStorageToProductListFacadeInterface
-     */
     public function getProductListFacade(): ProductListStorageToProductListFacadeInterface
     {
         return $this->getProvidedDependency(ProductListStorageDependencyProvider::FACADE_PRODUCT_LIST);

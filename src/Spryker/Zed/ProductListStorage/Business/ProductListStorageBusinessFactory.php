@@ -27,9 +27,6 @@ use Spryker\Zed\ProductListStorage\ProductListStorageDependencyProvider;
  */
 class ProductListStorageBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\ProductListStorage\Business\ProductListProductAbstractStorage\ProductListProductAbstractStorageWriterInterface
-     */
     public function createProductListProductAbstractStorageWriter(): ProductListProductAbstractStorageWriterInterface
     {
         return new ProductListProductAbstractStorageWriter(
@@ -39,9 +36,6 @@ class ProductListStorageBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductListStorage\Business\ProductListProductConcreteStorage\ProductListProductConcreteStorageWriterInterface
-     */
     public function createProductListProductConcreteStorageWriter(): ProductListProductConcreteStorageWriterInterface
     {
         return new ProductListProductConcreteStorageWriter(
@@ -51,9 +45,6 @@ class ProductListStorageBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductListStorage\Business\ProductAbstract\ProductAbstractReaderInterface
-     */
     public function createProductAbstractReader(): ProductAbstractReaderInterface
     {
         return new ProductAbstractReader(
@@ -61,9 +52,6 @@ class ProductListStorageBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductListStorage\Business\ProductConcrete\ProductConcreteReaderInterface
-     */
     public function createProductConcreteReader(): ProductConcreteReaderInterface
     {
         return new ProductConcreteReader(
@@ -71,9 +59,6 @@ class ProductListStorageBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductListStorage\Business\ProductListStorage\ProductListStorageWriterInterface
-     */
     public function createProductListStorageWriter(): ProductListStorageWriterInterface
     {
         return new ProductListStorageWriter(
@@ -84,9 +69,6 @@ class ProductListStorageBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductListStorage\Dependency\Facade\ProductListStorageToProductListFacadeInterface
-     */
     protected function getProductListFacade(): ProductListStorageToProductListFacadeInterface
     {
         return $this->getProvidedDependency(ProductListStorageDependencyProvider::FACADE_PRODUCT_LIST);

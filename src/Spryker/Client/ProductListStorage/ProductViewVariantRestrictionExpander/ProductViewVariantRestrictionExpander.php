@@ -23,9 +23,6 @@ class ProductViewVariantRestrictionExpander implements ProductViewVariantRestric
      */
     protected $productConcreteRestrictionReader;
 
-    /**
-     * @param \Spryker\Client\ProductListStorage\ProductConcreteRestriction\ProductConcreteRestrictionReaderInterface $productConcreteRestrictionReader
-     */
     public function __construct(
         ProductConcreteRestrictionReaderInterface $productConcreteRestrictionReader
     ) {
@@ -100,12 +97,6 @@ class ProductViewVariantRestrictionExpander implements ProductViewVariantRestric
         return $unrestrictedAttributeVariants;
     }
 
-    /**
-     * @param array $superAttributes
-     * @param array $filteredAttributeVariants
-     *
-     * @return array
-     */
     protected function filterSuperAttributes(array $superAttributes, array $filteredAttributeVariants): array
     {
         $filteredSuperAttributes = [];
@@ -149,12 +140,6 @@ class ProductViewVariantRestrictionExpander implements ProductViewVariantRestric
         }, []);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductViewTransfer $productViewTransfer
-     * @param array $unrestrictedAttributeVariants
-     *
-     * @return array
-     */
     protected function getAvailableAttributes(ProductViewTransfer $productViewTransfer, array $unrestrictedAttributeVariants): array
     {
         $availableAttributes = $this->getAvailableAttributesForSelectedOptions($unrestrictedAttributeVariants, $productViewTransfer->getSelectedAttributes());
@@ -174,12 +159,6 @@ class ProductViewVariantRestrictionExpander implements ProductViewVariantRestric
         return $availableAttributes;
     }
 
-    /**
-     * @param array $unrestrictedAttributeVariants
-     * @param array $selectedAttributes
-     *
-     * @return array
-     */
     protected function getAvailableAttributesForSelectedOptions(array $unrestrictedAttributeVariants, array $selectedAttributes = []): array
     {
         $availableAttributes = $availableAttributesForSelectedOptions = [];
@@ -201,13 +180,6 @@ class ProductViewVariantRestrictionExpander implements ProductViewVariantRestric
         return $availableAttributesForSelectedOptions;
     }
 
-    /**
-     * @param string $attributeKey
-     * @param array $attributeValues
-     * @param array $unrestrictedAttributeVariants
-     *
-     * @return array
-     */
     protected function getAvailableAttributeValues(
         string $attributeKey,
         array $attributeValues,
@@ -226,12 +198,6 @@ class ProductViewVariantRestrictionExpander implements ProductViewVariantRestric
         return $availableAttributeValues;
     }
 
-    /**
-     * @param string $attributeKeyValue
-     * @param array $unrestrictedAttributeVariants
-     *
-     * @return bool
-     */
     protected function isAttributeKeyValueAvailable(string $attributeKeyValue, array $unrestrictedAttributeVariants): bool
     {
         return array_key_exists($attributeKeyValue, $unrestrictedAttributeVariants);
@@ -285,12 +251,6 @@ class ProductViewVariantRestrictionExpander implements ProductViewVariantRestric
         );
     }
 
-    /**
-     * @param string $attributeKey
-     * @param string $attributeValue
-     *
-     * @return string
-     */
     protected function getAttributeKeyValue(string $attributeKey, string $attributeValue): string
     {
         return implode(ProductListStorageConfig::ATTRIBUTE_MAP_PATH_DELIMITER, [

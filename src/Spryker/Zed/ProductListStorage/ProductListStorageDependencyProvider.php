@@ -51,11 +51,6 @@ class ProductListStorageDependencyProvider extends AbstractBundleDependencyProvi
      */
     public const PROPEL_QUERY_PRODUCT_LIST_PRODUCT_CONCRETE = 'PROPEL_QUERY_PRODUCT_LIST_PRODUCT_CONCRETE';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideBusinessLayerDependencies(Container $container): Container
     {
         $container = parent::provideBusinessLayerDependencies($container);
@@ -64,11 +59,6 @@ class ProductListStorageDependencyProvider extends AbstractBundleDependencyProvi
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideCommunicationLayerDependencies(Container $container): Container
     {
         $container = parent::provideCommunicationLayerDependencies($container);
@@ -78,11 +68,6 @@ class ProductListStorageDependencyProvider extends AbstractBundleDependencyProvi
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function providePersistenceLayerDependencies(Container $container): Container
     {
         $container = parent::providePersistenceLayerDependencies($container);
@@ -94,11 +79,6 @@ class ProductListStorageDependencyProvider extends AbstractBundleDependencyProvi
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductListPropelQuery(Container $container): Container
     {
         $container->set(static::PROPEL_PRODUCT_LIST_QUERY, $container->factory(function () {
@@ -108,11 +88,6 @@ class ProductListStorageDependencyProvider extends AbstractBundleDependencyProvi
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addEventBehaviorFacade(Container $container): Container
     {
         $container->set(static::FACADE_EVENT_BEHAVIOR, function (Container $container) {
@@ -124,11 +99,6 @@ class ProductListStorageDependencyProvider extends AbstractBundleDependencyProvi
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductListFacade(Container $container): Container
     {
         $container->set(static::FACADE_PRODUCT_LIST, function (Container $container) {
@@ -138,11 +108,6 @@ class ProductListStorageDependencyProvider extends AbstractBundleDependencyProvi
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductPropelQuery(Container $container): Container
     {
         $container->set(static::PROPEL_QUERY_PRODUCT, $container->factory(function () {
@@ -152,11 +117,6 @@ class ProductListStorageDependencyProvider extends AbstractBundleDependencyProvi
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductCategoryPropelQuery(Container $container): Container
     {
         $container->set(static::PROPEL_QUERY_PRODUCT_CATEGORY, $container->factory(function () {
@@ -166,11 +126,6 @@ class ProductListStorageDependencyProvider extends AbstractBundleDependencyProvi
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductListProductConcretePropelQuery(Container $container): Container
     {
         $container->set(static::PROPEL_QUERY_PRODUCT_LIST_PRODUCT_CONCRETE, $container->factory(function () {

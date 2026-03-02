@@ -55,11 +55,6 @@ class ProductListStorageEventSubscriber extends AbstractPlugin implements EventS
         return $eventCollection;
     }
 
-    /**
-     * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection
-     *
-     * @return void
-     */
     protected function addProductConcreteStorageListener(EventCollectionInterface $eventCollection): void
     {
         $eventCollection->addListenerQueued(ProductEvents::PRODUCT_CONCRETE_PUBLISH, new ProductConcreteStorageListener(), 0, null, $this->getConfig()->getProductConcreteProductListEventQueueName());
@@ -68,11 +63,6 @@ class ProductListStorageEventSubscriber extends AbstractPlugin implements EventS
         $eventCollection->addListenerQueued(ProductEvents::ENTITY_SPY_PRODUCT_DELETE, new ProductConcreteStorageListener(), 0, null, $this->getConfig()->getProductConcreteProductListEventQueueName());
     }
 
-    /**
-     * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection
-     *
-     * @return void
-     */
     protected function addProductCategoryConcreteStorageListener(EventCollectionInterface $eventCollection): void
     {
         $eventCollection->addListenerQueued(ProductCategoryEvents::ENTITY_SPY_PRODUCT_CATEGORY_CREATE, new ProductCategoryConcreteStorageListener(), 0, null, $this->getConfig()->getProductConcreteProductListEventQueueName());
@@ -80,11 +70,6 @@ class ProductListStorageEventSubscriber extends AbstractPlugin implements EventS
         $eventCollection->addListenerQueued(ProductCategoryEvents::ENTITY_SPY_PRODUCT_CATEGORY_DELETE, new ProductCategoryConcreteStorageListener(), 0, null, $this->getConfig()->getProductConcreteProductListEventQueueName());
     }
 
-    /**
-     * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection
-     *
-     * @return void
-     */
     protected function addProductListProductCategoryConcreteStorageListener(EventCollectionInterface $eventCollection): void
     {
         $eventCollection->addListenerQueued(ProductListEvents::PRODUCT_LIST_CATEGORY_PUBLISH, new ProductListProductCategoryConcreteStorageListener(), 0, null, $this->getConfig()->getProductConcreteProductListEventQueueName());
@@ -93,11 +78,6 @@ class ProductListStorageEventSubscriber extends AbstractPlugin implements EventS
         $eventCollection->addListenerQueued(ProductListEvents::ENTITY_SPY_PRODUCT_LIST_CATEGORY_DELETE, new ProductListProductCategoryConcreteStorageListener(), 0, null, $this->getConfig()->getProductConcreteProductListEventQueueName());
     }
 
-    /**
-     * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection
-     *
-     * @return void
-     */
     protected function addProductListProductConcreteStorageListener(EventCollectionInterface $eventCollection): void
     {
         $eventCollection->addListenerQueued(ProductListEvents::PRODUCT_LIST_PRODUCT_CONCRETE_PUBLISH, new ProductListProductConcreteStorageListener(), 0, null, $this->getConfig()->getProductConcreteProductListEventQueueName());
@@ -106,11 +86,6 @@ class ProductListStorageEventSubscriber extends AbstractPlugin implements EventS
         $eventCollection->addListenerQueued(ProductListEvents::ENTITY_SPY_PRODUCT_LIST_PRODUCT_CONCRETE_DELETE, new ProductListProductConcreteStorageListener(), 0, null, $this->getConfig()->getProductConcreteProductListEventQueueName());
     }
 
-    /**
-     * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection
-     *
-     * @return void
-     */
     protected function addProductListProductAbstractStorageListener(EventCollectionInterface $eventCollection): void
     {
         $eventCollection->addListenerQueued(ProductListEvents::PRODUCT_LIST_PRODUCT_CONCRETE_PUBLISH, new ProductListProductAbstractStorageListener(), 0, null, $this->getConfig()->getProductAbstractProductListEventQueueName());
@@ -119,11 +94,6 @@ class ProductListStorageEventSubscriber extends AbstractPlugin implements EventS
         $eventCollection->addListenerQueued(ProductListEvents::ENTITY_SPY_PRODUCT_LIST_PRODUCT_CONCRETE_DELETE, new ProductListProductAbstractStorageListener(), 0, null, $this->getConfig()->getProductAbstractProductListEventQueueName());
     }
 
-    /**
-     * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection
-     *
-     * @return void
-     */
     protected function addProductAbstractStorageListener(EventCollectionInterface $eventCollection): void
     {
         $eventCollection->addListenerQueued(ProductEvents::PRODUCT_CONCRETE_PUBLISH, new ProductAbstractStorageListener(), 0, null, $this->getConfig()->getProductAbstractProductListEventQueueName());
@@ -132,11 +102,6 @@ class ProductListStorageEventSubscriber extends AbstractPlugin implements EventS
         $eventCollection->addListenerQueued(ProductEvents::ENTITY_SPY_PRODUCT_DELETE, new ProductAbstractStorageListener(), 0, null, $this->getConfig()->getProductAbstractProductListEventQueueName());
     }
 
-    /**
-     * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection
-     *
-     * @return void
-     */
     protected function addProductListProductCategoryAbstractStorageListener(EventCollectionInterface $eventCollection): void
     {
         $eventCollection->addListenerQueued(ProductListEvents::PRODUCT_LIST_CATEGORY_PUBLISH, new ProductListProductCategoryAbstractStorageListener(), 0, null, $this->getConfig()->getProductAbstractProductListEventQueueName());
@@ -145,11 +110,6 @@ class ProductListStorageEventSubscriber extends AbstractPlugin implements EventS
         $eventCollection->addListenerQueued(ProductListEvents::ENTITY_SPY_PRODUCT_LIST_CATEGORY_DELETE, new ProductListProductCategoryAbstractStorageListener(), 0, null, $this->getConfig()->getProductAbstractProductListEventQueueName());
     }
 
-    /**
-     * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection
-     *
-     * @return void
-     */
     protected function addProductCategoryAbstractStorageListener(EventCollectionInterface $eventCollection): void
     {
         $eventCollection->addListenerQueued(ProductCategoryEvents::ENTITY_SPY_PRODUCT_CATEGORY_CREATE, new ProductCategoryAbstractStorageListener(), 0, null, $this->getConfig()->getProductAbstractProductListEventQueueName());
@@ -157,11 +117,6 @@ class ProductListStorageEventSubscriber extends AbstractPlugin implements EventS
         $eventCollection->addListenerQueued(ProductCategoryEvents::ENTITY_SPY_PRODUCT_CATEGORY_DELETE, new ProductCategoryAbstractStorageListener(), 0, null, $this->getConfig()->getProductAbstractProductListEventQueueName());
     }
 
-    /**
-     * @param \Spryker\Zed\Event\Dependency\EventCollectionInterface $eventCollection
-     *
-     * @return void
-     */
     protected function addProductListListenerUpdate(EventCollectionInterface $eventCollection): void
     {
         $eventCollection->addListenerQueued(ProductListEvents::ENTITY_SPY_PRODUCT_LIST_UPDATE, new ProductListStorageListener(), 0, null, $this->getConfig()->getProductAbstractProductListEventQueueName());
