@@ -86,4 +86,34 @@ class ProductListStorageConfig extends AbstractBundleConfig
      * @var string
      */
     public const PRODUCT_LIST_PUBLISH = 'ProductList.spy_product_list.publish';
+
+    /**
+     * Specification:
+     * - Queue name used for product list publish events.
+     *
+     * @api
+     *
+     * @var string
+     */
+    public const string PUBLISH_PRODUCT_LIST_QUEUE = 'publish.product_list';
+
+    /**
+     * Specification:
+     * - Queue name used for product abstract product list publish events.
+     *
+     * @api
+     *
+     * @var string
+     */
+    public const string PUBLISH_PRODUCT_LIST_PRODUCT_ABSTRACT_QUEUE = 'publish.product_list.product_abstract';
+
+    /**
+     * Specification:
+     * - Queue name used for product concrete product list publish events.
+     *
+     * @api
+     *
+     * @var string
+     */
+    public const string PUBLISH_PRODUCT_LIST_PRODUCT_CONCRETE_QUEUE = 'publish.product_list.product_concrete';
 }
