@@ -13,10 +13,12 @@ use Spryker\Zed\Kernel\Persistence\EntityManager\InstancePoolingTrait;
 use Spryker\Zed\ProductListStorage\Dependency\Facade\ProductListStorageToProductListFacadeInterface;
 use Spryker\Zed\ProductListStorage\Persistence\ProductListStorageRepositoryInterface;
 use Spryker\Zed\ProductListStorage\ProductListStorageConfig;
+use Spryker\Zed\Propel\Persistence\BatchProcessor\ActiveRecordBatchProcessorTrait;
 
 class ProductListProductAbstractStorageWriter implements ProductListProductAbstractStorageWriterInterface
 {
     use InstancePoolingTrait;
+    use ActiveRecordBatchProcessorTrait;
 
     /**
      * @var \Spryker\Zed\ProductListStorage\Dependency\Facade\ProductListStorageToProductListFacadeInterface
@@ -75,6 +77,7 @@ class ProductListProductAbstractStorageWriter implements ProductListProductAbstr
                 $savedProductAbstractProductListStorageEntities,
             );
         }
+        $this->commit();
 
         if ($isPoolingStateChanged) {
             $this->enableInstancePooling();
@@ -115,8 +118,9 @@ class ProductListProductAbstractStorageWriter implements ProductListProductAbstr
 
             $productAbstractProductListStorageEntity->setFkProductAbstract($idProductAbstract)
                 ->setData($productAbstractProductListsStorageTransfer->toArray())
-                ->setIsSendingToQueue($this->productListStorageConfig->isSendingToQueue())
-                ->save();
+                ->setIsSendingToQueue($this->productListStorageConfig->isSendingToQueue());
+
+            $this->persist($productAbstractProductListStorageEntity);
 
             $savedProductAbstractProductListStorageEntities[$idProductAbstract] = $productAbstractProductListStorageEntity;
         }
@@ -217,7 +221,7 @@ class ProductListProductAbstractStorageWriter implements ProductListProductAbstr
         );
 
         foreach ($productAbstractProductListStorageEntitiesToDelete as $productAbstractProductListStorageEntity) {
-            $productAbstractProductListStorageEntity->delete();
+            $this->remove($productAbstractProductListStorageEntity);
         }
     }
 }

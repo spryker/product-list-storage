@@ -13,10 +13,12 @@ use Spryker\Zed\Kernel\Persistence\EntityManager\InstancePoolingTrait;
 use Spryker\Zed\ProductListStorage\Dependency\Facade\ProductListStorageToProductListFacadeInterface;
 use Spryker\Zed\ProductListStorage\Persistence\ProductListStorageRepositoryInterface;
 use Spryker\Zed\ProductListStorage\ProductListStorageConfig;
+use Spryker\Zed\Propel\Persistence\BatchProcessor\ActiveRecordBatchProcessorTrait;
 
 class ProductListProductConcreteStorageWriter implements ProductListProductConcreteStorageWriterInterface
 {
     use InstancePoolingTrait;
+    use ActiveRecordBatchProcessorTrait;
 
     /**
      * @var \Spryker\Zed\ProductListStorage\Dependency\Facade\ProductListStorageToProductListFacadeInterface
@@ -76,6 +78,8 @@ class ProductListProductConcreteStorageWriter implements ProductListProductConcr
             );
         }
 
+        $this->commit();
+
         if ($isPoolingStateChanged) {
             $this->enableInstancePooling();
         }
@@ -115,8 +119,9 @@ class ProductListProductConcreteStorageWriter implements ProductListProductConcr
 
             $productConcreteProductListStorageEntity->setFkProduct($idProductConcrete)
                 ->setData($productConcreteProductListsStorageTransfer->toArray())
-                ->setIsSendingToQueue($this->productListStorageConfig->isSendingToQueue())
-                ->save();
+                ->setIsSendingToQueue($this->productListStorageConfig->isSendingToQueue());
+
+            $this->persist($productConcreteProductListStorageEntity);
 
             $savedProductConcreteProductListStorageEntities[$idProductConcrete] = $productConcreteProductListStorageEntity;
         }
@@ -215,7 +220,7 @@ class ProductListProductConcreteStorageWriter implements ProductListProductConcr
         );
 
         foreach ($productConcreteProductListStorageEntitiesToDelete as $productConcreteProductListStorageEntity) {
-            $productConcreteProductListStorageEntity->delete();
+            $this->remove($productConcreteProductListStorageEntity);
         }
     }
 }
