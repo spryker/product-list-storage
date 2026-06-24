@@ -62,6 +62,8 @@ class ProductListStorageConfig extends AbstractBundleConfig
     public const PRODUCT_LIST_RESOURCE_NAME = 'product_list';
 
     /**
+     * @api
+     *
      * @uses \Spryker\Shared\Product\ProductConfig::VARIANT_LEAF_NODE_ID
      *
      * @var string
@@ -69,6 +71,8 @@ class ProductListStorageConfig extends AbstractBundleConfig
     public const VARIANT_LEAF_NODE_ID = 'id_product_concrete';
 
     /**
+     * @api
+     *
      * @uses \Spryker\Shared\Product\ProductConfig::ATTRIBUTE_MAP_PATH_DELIMITER
      *
      * @phpstan-var non-empty-string
