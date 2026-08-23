@@ -81,7 +81,6 @@ class ProductListStorageListenerTest extends Unit
 
         $facadeReflection = new ReflectionClass($facade);
         $reflectionProperty = $facadeReflection->getParentClass()->getProperty('factory');
-        $reflectionProperty->setAccessible(true);
         $reflectionProperty->setValue($facade, $this->getFactoryMock());
 
         return $facade;
