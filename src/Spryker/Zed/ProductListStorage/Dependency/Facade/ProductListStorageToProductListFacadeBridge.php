@@ -109,4 +109,12 @@ class ProductListStorageToProductListFacadeBridge implements ProductListStorageT
     {
         return $this->productListFacade->getProductListCollection($productListCriteriaTransfer);
     }
+
+    /**
+     * @param array<int> $productIds
+     */
+    public function preloadProductListCacheByProductIds(array $productIds): void
+    {
+        $this->productListFacade->preloadProductListCacheByProductIds($productIds);
+    }
 }

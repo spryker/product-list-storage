@@ -7,6 +7,7 @@
 
 namespace Spryker\Zed\ProductListStorage\Business\ProductListProductConcreteStorage;
 
+use Generated\Shared\Transfer\ProductConcreteOwnProductListsStorageTransfer;
 use Generated\Shared\Transfer\ProductConcreteProductListStorageTransfer;
 use Orm\Zed\ProductListStorage\Persistence\SpyProductConcreteProductListStorage;
 use Spryker\Zed\Kernel\Persistence\EntityManager\InstancePoolingTrait;
@@ -63,6 +64,7 @@ class ProductListProductConcreteStorageWriter implements ProductListProductConcr
         );
 
         foreach ($productConcreteIdsChunks as $productConcreteIdsChunk) {
+            $this->preloadProductConcreteOwnProductLists($productConcreteIdsChunk);
             $productConcreteProductListStorageEntities = $this->findProductConcreteProductListStorageEntities($productConcreteIdsChunk);
             $indexedProductConcreteProductListStorageEntities = $this->indexProductConcreteProductListStorageEntities($productConcreteProductListStorageEntities);
 
@@ -136,7 +138,32 @@ class ProductListProductConcreteStorageWriter implements ProductListProductConcr
             ->setIdBlacklists($this->findProductConcreteBlacklistIdsByIdProductConcrete($idProductConcrete, $productLists))
             ->setIdWhitelists($this->findProductConcreteWhitelistIdsByIdProductConcrete($idProductConcrete, $productLists));
 
-        return $productConcreteProductListsStorageTransfer;
+        if (!$this->productListStorageConfig->isProductConcreteOwnProductListsPublishingEnabled()) {
+            return $productConcreteProductListsStorageTransfer;
+        }
+
+        return $productConcreteProductListsStorageTransfer->setOwnProductLists(
+            $this->getProductConcreteOwnProductListsStorageTransfer($idProductConcrete),
+        );
+    }
+
+    /**
+     * @param array<int> $productConcreteIds
+     */
+    protected function preloadProductConcreteOwnProductLists(array $productConcreteIds): void
+    {
+        if (!$this->productListStorageConfig->isProductConcreteOwnProductListsPublishingEnabled()) {
+            return;
+        }
+
+        $this->productListFacade->preloadProductListCacheByProductIds($productConcreteIds);
+    }
+
+    protected function getProductConcreteOwnProductListsStorageTransfer(int $idProductConcrete): ProductConcreteOwnProductListsStorageTransfer
+    {
+        return (new ProductConcreteOwnProductListsStorageTransfer())
+            ->setBlacklistIds($this->productListFacade->getProductBlacklistIdsByIdProduct($idProductConcrete))
+            ->setWhitelistIds($this->productListFacade->getProductWhitelistIdsByIdProduct($idProductConcrete));
     }
 
     /**

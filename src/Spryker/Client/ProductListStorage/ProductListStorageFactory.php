@@ -15,6 +15,8 @@ use Spryker\Client\ProductListStorage\ProductAbstractRestriction\ProductAbstract
 use Spryker\Client\ProductListStorage\ProductAbstractRestriction\ProductAbstractRestrictionReaderInterface;
 use Spryker\Client\ProductListStorage\ProductConcreteRestriction\ProductConcreteRestrictionReader;
 use Spryker\Client\ProductListStorage\ProductConcreteRestriction\ProductConcreteRestrictionReaderInterface;
+use Spryker\Client\ProductListStorage\ProductConcreteSearchResultFilter\ProductListProductConcreteSearchResultFilter;
+use Spryker\Client\ProductListStorage\ProductConcreteSearchResultFilter\ProductListProductConcreteSearchResultFilterInterface;
 use Spryker\Client\ProductListStorage\ProductListProductAbstractStorage\ProductListProductAbstractStorageReader;
 use Spryker\Client\ProductListStorage\ProductListProductAbstractStorage\ProductListProductAbstractStorageReaderInterface;
 use Spryker\Client\ProductListStorage\ProductListProductConcreteStorage\ProductListProductConcreteStorageReader;
@@ -67,6 +69,11 @@ class ProductListStorageFactory extends AbstractFactory
     public function createProductConcreteProductRestrictionFilter(): ProductRestrictionFilterInterface
     {
         return new ProductConcreteProductRestrictionFilter($this->getCustomerClient(), $this->createProductListProductConcreteStorageReader());
+    }
+
+    public function createProductListProductConcreteSearchResultFilter(): ProductListProductConcreteSearchResultFilterInterface
+    {
+        return new ProductListProductConcreteSearchResultFilter($this->createProductListProductConcreteStorageReader());
     }
 
     public function getStorageClient(): ProductListStorageToStorageClientInterface

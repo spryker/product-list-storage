@@ -11,6 +11,12 @@
         <property name="idProductConcrete" type="int"/>
         <property name="idBlacklists" type="array" singular="idBlacklists"/>
         <property name="idWhitelists" type="array" singular="idWhitelists"/>
+        <property name="ownProductLists" type="ProductConcreteOwnProductListsStorage" description="Product lists assigned to the concrete product itself or to its categories, without the lists merged in from the abstract product. Null when not published."/>
+    </transfer>
+
+    <transfer name="ProductConcreteOwnProductListsStorage" strict="true">
+        <property name="blacklistIds" type="int[]" singular="idBlacklist"/>
+        <property name="whitelistIds" type="int[]" singular="idWhitelist"/>
     </transfer>
 
     <transfer name="Customer">
@@ -60,6 +66,15 @@
     </transfer>
 
     <transfer name="ProductList">
+        <property name="idProductList" type="int"/>
+    </transfer>
+
+    <transfer name="ProductConcreteCriteriaFilter">
+        <property name="requestParams" type="array" singular="requestParams"/>
+    </transfer>
+
+    <transfer name="ProductConcretePageSearch">
+        <property name="fkProduct" type="int"/>
     </transfer>
 
 </transfers>

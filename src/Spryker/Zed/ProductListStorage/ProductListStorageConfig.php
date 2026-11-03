@@ -102,4 +102,20 @@ class ProductListStorageConfig extends AbstractBundleConfig
     {
         return null;
     }
+
+    /**
+     * Specification:
+     * - Defines if the concrete product product list storage data is extended with `ownProductLists`.
+     * - `ownProductLists` contains the product lists assigned to the concrete product itself and to the categories of its abstract product,
+     *   without the lists of its sibling concrete products that `idWhitelists`/`idBlacklists` also contain.
+     * - Required by {@link \Spryker\Client\ProductListStorage\Plugin\Catalog\ProductListProductConcreteStorageSearchResultFilterPlugin}:
+     *   while `ownProductLists` is not published, the plugin keeps all concrete products that have product list storage data.
+     * - After enabling, re-publish the concrete product product lists, e.g. `vendor/bin/console publish:trigger-events -r product_list`.
+     *
+     * @api
+     */
+    public function isProductConcreteOwnProductListsPublishingEnabled(): bool
+    {
+        return false;
+    }
 }
